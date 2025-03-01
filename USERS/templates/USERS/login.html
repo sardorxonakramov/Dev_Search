@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<div class="auth">
+  <div class="card">
+    <div class="auth__header text-center">
+      <a href="/">
+        <img src="{% static 'images/icon.svg' %}" alt="icon" />
+
+      </a>
+      <h3>{% trans 'Account Login' %}</h3>
+      <p>{% trans 'Hello Developer, Welcome Back!' %}</p>
+    </div>
+    <form action="" method='POST' class="form auth__form"> 
+      {% csrf_token %}
+      <!-- Google OAuth -->
+      <!-- Google OAuth va GitHub OAuth, 1 ta qatorda rangli ikonalar bilan, space-around -->
+      <div class="row d-flex justify-content-center my-2" style="padding: 10px 0;">
+        <div class="col-md-8 d-flex justify-content-center text-center" >
+            <button class="btn btn-primary mb-2 mx-2" style="text-decoration: none;">
+                <a href="{% url 'social:begin' 'google-oauth2' %}" class="text-white text-decoration-none">Continue With Google</a>
+            </button>
+            
+            <button class="btn btn-primary mb-2 mx-2">
+                <a href="{% url 'social:begin' 'github' %}" class="text-white text-decoration-none">Continue With GitHub</a>
+            </button>
+        </div>
+    </div>
+    <hr>
+    
+    <hr>
+    
+
+      <!-- Input:Email -->
+      <div class="form__field">
+        <label for="formInput#text">Email: </label>
+        <input class="input input--text" id="formInput#text" type="email" name="username"
+          placeholder="Enter your email..." />
+      </div>
+
+      <!-- Input:Password -->
+      <div class="form__field">
+        <label for="formInput#password">Password: </label>
+        <input class="input input--password" id="formInput#password" type="password" name="password"
+          placeholder="••••••••" />
+      </div>
+
+      <div class="auth__actions">
+        <input class="btn btn--sub btn--lg" type="submit" value="Log In" />
+        <a href="{% url 'password_reset' %}">Forget Password?</a>
+      </div>
+    </form>
+    <div class="auth__alternative">
+      <p>Don’t have an Account?</p>
+      <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

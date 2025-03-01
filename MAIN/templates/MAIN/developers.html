@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<main class="home">
+  <section class="hero-section text-center">
+    <div class="container container--narrow">
+      <div class="hero-section__box">
+        {% blocktrans %}
+        <h2>CONNECT WITH <span>DEVELOPERS</span></h2>
+        <h2>FROM AROUND THE WORLD</h2>
+        {% endblocktrans %}
+      </div>
+
+      <div class="hero-section__search">
+        <form class="form" action="#" method="get">
+          <div class="form__field">
+            <label for="formInput#search">{% trans 'Search Developers' %} </label>
+            <input class="input input--text" id="formInput#search" type="text" name="text"
+              placeholder="{% trans 'Search by developer name' %}" />
+          </div>
+
+          <input class="btn btn--sub btn--lg" type="submit" value="{% trans 'Search' %}" />
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Search Result: DevList -->
+  <section class="devlist">
+    <div class="container">
+      <div class="grid grid--three">
+        {% for developer in developers %}
+        <div class="column card">
+          <div class="dev">
+            <a href="{% url 'profile' user_id=developer.id  %}" class="card__body">
+              <div class="dev__profile">
+                <img class="avatar avatar--md" src="{{ developer.profile_image.url }}"
+                  alt="{{ developer.get_fullname }}" />
+                <div class="dev__meta">
+                  <h3>{{ developer.fullname }}</h3>
+                  <h5>{{ developer.occupation|truncatechars:50 }}</h5>
+                </div>
+              </div>
+              <p class="dev__info">
+                {{ developer.bio }}
+              </p>
+              <div class="dev__skills">
+                {% for skill in developer.skill_set.all|slice:6 %}
+                <span class="tag tag--pill tag--main">
+                  <small>{{skill.name}}</small>
+                </span>
+                {% endfor %}
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="pagination">
+  <ul class="container">
+    <li>
+      <a href="{% if not page_obj.has_previous %} #! {% else %} ?page={{ page_obj.previous_page_number }} {% endif %}" class="btn {% if not page_obj.has_previous %} btn--disabled {% endif %}">&#10094; Prev</a>
+    </li>
+    {% for page in custom_range %}
+      <li>
+        <a href="{% if page == page_obj.number %}#!{% else %} ?page={{ page }} {% endif %}" class="btn {% if page == page_obj.number %} btn--sub {% endif %}">{{ page }}</a>
+      </li>
+    {% endfor %}
+    <li>
+      <a href="{% if not page_obj.has_next %} #! {% else %} ?page={{ page_obj.next_page_number }} {% endif %}" class="btn {% if not page_obj.has_next %} btn--disabled {% endif %}">Next &#10095;</a>
+    </li>
+  </ul>
+  <br>
+  <div style="display: flex;justify-content: center;">
+    {% trans 'Page Number:' %} {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+</div>
+</div>
+</main>
+{% endblock content %}

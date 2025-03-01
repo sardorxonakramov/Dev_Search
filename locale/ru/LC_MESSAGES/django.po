@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-08 21:31+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: CONFIG/settings.py:126
+msgid "English"
+msgstr "Английский"
+
+#: CONFIG/settings.py:127
+msgid "Uzbek"
+msgstr "Узбекский"
+
+#: CONFIG/settings.py:128
+msgid "Russian"
+msgstr "Русский"
+
+#: MAIN/templates/MAIN/developers.html:9
+msgid ""
+"\n"
+"          <h2>CONNECT WITH <span>DEVELOPERS</span></h2>\n"
+"          <h2>FROM AROUND THE WORLD</h2>\n"
+"          "
+msgstr ""
+"\n"
+"          <h2>СВЯЖИТЕСЬ С <span>РАЗРАБОТЧИКАМИ</span></h2>\n"
+"          <h2>СО ВСЕГО МИРА</h2>\n"
+"          "
+
+#: MAIN/templates/MAIN/developers.html:18
+msgid "Search Developers"
+msgstr "Поиск Разработчиков"
+
+#: MAIN/templates/MAIN/developers.html:20
+msgid "Search by developer name"
+msgstr "Поиск Разработчиков imya"
+
+#: MAIN/templates/MAIN/developers.html:23
+msgid "Search"
+msgstr "Поиск"
+
+#: MAIN/templates/MAIN/developers.html:76
+msgid "Prev"
+msgstr "Назад"
+
+#: MAIN/templates/MAIN/developers.html:87
+msgid "Next"
+msgstr "Вперед"
+
+#: templates/components/_nav.html:16
+msgid "Developers"
+msgstr "Разработчики"
+
+#: templates/components/_nav.html:17
+msgid "Projects"
+msgstr "Проекты"
+
+#: templates/components/_nav.html:18
+msgid "Inbox"
+msgstr "Входящие"
+
+#: templates/components/_nav.html:19
+msgid "My Account"
+msgstr "Мой Аккаунт"
+
+#: templates/components/_nav.html:20
+msgid "Login/Sign Up"
+msgstr "Вход/Регистрация"

@@ -1,0 +1,80 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+<main class="formPage my-xl">
+	<div class="content-box">
+		<div class="formWrapper">
+			<a class="backButton" href="{{ request.META.HTTP_REFERER }}">
+				<i class="bi bi-arrow-left"></i>
+			</a>
+			<br />
+
+			<form class="form" method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+
+				{% for field in form %}
+                    <div class="form__field">
+                        <label for="id_{{ field.name }}">{{ field.label }}: </label>
+                        {{ field }}
+                    </div>
+				{% endfor %}
+
+				<!-- Tag input section -->
+				<div class="form__field">
+                    <label for="id_tags">Tags:</label>
+                    <div id="tags" style="margin-bottom: 10px;"></div>
+                    <input type="hidden" name="tags" id="tags_hidden">
+                    <input class="input" type="text" name="custom_tags" id="id_tags" >
+                </div>
+
+				<button class="btn btn--sub btn--lg my-md" type="submit" id="submit-form-btn">{{ btn_text }}</button>
+			</form>
+		</div>
+	</div>
+</main>
+<script type="text/javascript">
+    const tagsInput = document.getElementById('id_tags');
+    const tagsHiddenInput = document.getElementById('tags_hidden');
+    const tagsContainer = document.getElementById('tags');
+
+    // Update the hidden input with all current tags
+    const updateHiddenInput = () => {
+        const tags = Array.from(document.querySelectorAll('.tag-text')).map(tag => tag.textContent.trim());
+        tagsHiddenInput.value = tags.join(',');
+    };
+
+    // Add new tag
+    const addTag = (newTag) => {
+        const tagElement = document.createElement('span');
+        tagElement.classList.add('tag', 'tag--pill', 'tag--sub', 'tag--lg');
+        tagElement.innerHTML = `
+            <small class="tag-text" style="display: flex; align-items: center; gap: 10px;">
+                ${newTag}
+                <i class="bi bi-x-lg tag-close" style="cursor: pointer;"></i>
+            </small>
+        `;
+        tagsContainer.appendChild(tagElement);
+        updateHiddenInput();
+    };
+
+    // Add event listener for tag input
+    tagsInput.addEventListener('keyup', (event) => {
+        if (event.key === ',' || event.key === ' ') {
+            const newTag = event.target.value.replace(',', '').trim();
+            if (newTag && ![...document.querySelectorAll('.tag-text')].some(tag => tag.textContent.trim() === newTag)) {
+                addTag(newTag);
+            }
+            tagsInput.value = '';  // Clear input after adding the tag
+        }
+    });
+
+    // Event delegation for removing tags
+    tagsContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('tag-close')) {
+            event.target.closest('.tag').remove();
+            updateHiddenInput();
+        }
+    });
+</script>
+{% endblock content %}

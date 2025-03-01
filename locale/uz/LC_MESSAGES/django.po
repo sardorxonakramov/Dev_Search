@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-08 21:31+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: CONFIG/settings.py:126
+msgid "English"
+msgstr "Inglizcha"
+
+#: CONFIG/settings.py:127
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+#: CONFIG/settings.py:128
+msgid "Russian"
+msgstr "Ruscha"
+
+#: MAIN/templates/MAIN/developers.html:9
+msgid ""
+"\n"
+"          <h2>CONNECT WITH <span>DEVELOPERS</span></h2>\n"
+"          <h2>FROM AROUND THE WORLD</h2>\n"
+"          "
+msgstr ""
+"\n"
+"          <h2>BUTUN DUNYODAGI <span>DASTURCHILAR</span></h2>\n"
+"          <h2>BILAN ALOQADA BO'L</h2>\n"
+"          "
+
+#: MAIN/templates/MAIN/developers.html:18
+msgid "Search Developers"
+msgstr "Dasturchilarni qidirish"
+
+#: MAIN/templates/MAIN/developers.html:20
+msgid "Search by developer name"
+msgstr "Dasturchilar ismi bo'yicha qidirish"
+
+#: MAIN/templates/MAIN/developers.html:23
+msgid "Search"
+msgstr "Qidirish"
+
+#: MAIN/templates/MAIN/developers.html:76
+msgid "Prev"
+msgstr "Oldingi"
+
+#: MAIN/templates/MAIN/developers.html:87
+msgid "Next"
+msgstr "Keyingi"
+
+#: templates/components/_nav.html:16
+msgid "Developers"
+msgstr " Dasturchilar"
+
+#: templates/components/_nav.html:17
+msgid "Projects"
+msgstr "Loyihalar"
+
+#: templates/components/_nav.html:18
+msgid "Inbox"
+msgstr "Xabarlar"
+
+#: templates/components/_nav.html:19
+msgid "My Account"
+msgstr "Mening Hisobim"
+
+#: templates/components/_nav.html:20
+msgid "Login/Sign Up"
+msgstr "Kirish/..."

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{{ request.META.HTTP_REFERER }}"><i class="fas fa-angle-left"></i></a>
+            <br>
+
+            <form class="form" method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Input:Text -->
+                 {% for field in form %}
+                <div class="form__field">
+                    <label for="id_{{ field.name }}">{{ field.label }} </label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <!-- Input:Text -->
+              
+                </div>
+                <button class="btn btn--sub btn--lg  my-md" type="submit" > {{ btn_text }}</button>
+                <!-- <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" /> -->
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock content %}

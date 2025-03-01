@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{{ request.META.HTTP_REFERER }}"><i class="fas fa-angle-left"></i></a>
+            <br>
+
+            <form class="form" method="POST" action="">
+                {% csrf_token %}
+                <p>{{ confirmation_text }}</p>
+                <a class="btn btn--sub btn--lg  my-md" style="background-color: blue;" href="{% url 'account' user_id=object.owner.id %}">{% trans 'Cancal' %} </a>
+                <input class="btn btn--sub btn--lg  my-md" style="background-color: red;" type="submit" value="{% trans 'Delete' %} " />
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock content %}

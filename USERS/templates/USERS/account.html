@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<main class="settingsPage profile my-md">
+  <div class="container">
+    <div class="layout">
+      <div class="column column--1of3">
+        <div class="card text-center">
+          <div class="card__body dev">
+            <a class="tag tag--pill tag--main settings__btn"
+              href="{% url 'update_account' user_id=request.user.id %}"><i class="im im-edit"></i>{% trans 'Edit' %}</a>
+            <img class="avatar avatar--xl dev__avatar" src="{{ account.profile_image.url }}" />
+            <h2 class="dev__name">{{ account.fullname }}</h2>
+
+            {% if account.occupation %}
+            <p class="dev__title">{{ account.occupation }}</p>
+            {% else %}
+            <p class="dev__title">No occupation</p>
+            {% endif %}
+            {% if account.location %}
+            <p class="dev__location">{% trans 'Base in' %} {{ account.location }}</p>
+            {% else %}
+            <p class="dev__location">No Lacation</p>
+            {% endif %}
+            <!-- social accout  -->
+            <ul class="dev__social">
+              {% if account.social_git %}
+              <li>
+                <a title="GitHub" href="{{ account.social_git }}" target="_blank">
+                  <i class="fab fa-github" style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+
+              {% if account.social_telegram %}
+              <li>
+                <a title="Telegram" href="{{ account.social_telegram }}" target="_blank">
+                  <i class="fab fa-telegram-plane"
+                    style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+
+              {% if account.social_whatsapp %}
+              <li>
+                <a title="WhatsApp" href="{{ account.social_whatsapp }}" target="_blank">
+                  <i class="fab fa-whatsapp" style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+
+              {% if account.social_instagram %}
+              <li>
+                <a title="Instagram" href="{{ account.social_instagram }}" target="_blank">
+                  <i class="fab fa-instagram" style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+
+              {% if account.social_facebook %}
+              <li>
+                <a title="Facebook" href="{{ account.social_facebook }}" target="_blank">
+                  <i class="fab fa-facebook" style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+
+              {% if account.social_linkedin %}
+              <li>
+                <a title="LinkedIn" href="{{ account.social_linkedin }}" target="_blank">
+                  <i class="fab fa-linkedin" style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+
+              {% if account.social_youtube %}
+              <li>
+                <a title="YouTube" href="{{ account.social_youtube }}" target="_blank">
+                  <i class="fab fa-youtube" style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+
+              {% if account.social_website %}
+              <li>
+
+                <a title="Website" href="{{ account.social_website }}" target="_blank">
+                  <i class="fas fa-globe" style="font-size: 24px; color: #333; transition: color 0.3s ease;"></i>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="column column--2of3">
+        <div class="devInfo">
+          <h3 class="devInfo__title">About Me</h3>
+          <p class="devInfo__about">
+            {{ account.bio|linebreaksbr }}
+          </p>
+        </div>
+
+        <div class="settings">
+          <h3 class="settings__title">Skills</h3>
+          <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'create_skill' %}"><i
+              class="im im-plus"></i>{%trans 'Add Skill' %}</a>
+        </div>
+
+        <table class="settings__table">
+          {% for skill in account.skill_set.all %}
+          <tr>
+            <td class="settings__tableInfo">
+              <h4>{{skill.name}}</h4>
+              <p>
+                {{ skill.discription|linebreaksbr }}
+              </p>
+            </td>
+            <td class="settings__tableActions">
+              <a class="tag tag--pill tag--main settings__btn" href="{% url 'update_skill' skill_id=skill.id %}"><i
+                  class="im im-edit"></i> {% trans 'Edit' %}</a>
+              <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete_skill' skill_id=skill.id %}"><i
+                  class="im im-x-mark-circle-o"></i>
+                {% trans 'Delete' %} </a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </table>
+
+        <div class="settings">
+          <h3 class="settings__title">Projects</h3>
+          <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'project_create' %}"><i
+              class="im im-plus"></i>{% trans 'Add Project' %}</a>
+        </div>
+
+        <table class="settings__table">
+          {% for project in account.project_set.all %}
+          <tr>
+            <td class="settings__thumbnail">
+              <a href="{% url 'project_detail' project_id=project.id %}">
+                {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{project.name}}" />
+                {% else %}
+                <img src="{% static 'images//default-project.png' %}" alt="{{project.name}}" />
+                {% endif %}
+              </a>
+            </td>
+            <td class="settings__tableInfo">
+              <a href="{% url 'project_detail' project_id=project.id %}">{{ project.name }}</a>
+              <p>
+                {{ project.discription|truncatechars:200|linebreaksbr }}
+              </p>
+            </td>
+            <td class="settings__tableActions">
+              <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i> Edit</a>
+              <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-x-mark-circle-o"></i>
+                Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

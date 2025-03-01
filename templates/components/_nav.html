@@ -1,0 +1,60 @@
+{% load static %}
+{% load i18n %}
+
+<header class="header">
+  <div class="container container--narrow ">
+    <a href="/" class="header__logo">
+      <img src="{% static 'images/logo.svg' %}" alt="DevSearch Logo" />
+    </a>
+    <nav class="header__nav">
+      <input type="checkbox" id="responsive-menu" />
+      <label for="responsive-menu" class="toggle-menu">
+        <span>Menu</span>
+        <div class="toggle-menu__lines"></div>
+      </label>
+      <ul class="header__menu">
+        <li class="header__menuItem"><a href="{% url 'developers' %}">{% trans 'Developers' %}</a></li>
+        <li class="header__menuItem"><a href="{% url 'projects' %}">{% trans 'Projects' %}</a></li>
+        {% if request.user.is_authenticated %}
+
+        <li class="header__menuItem"><a href="{% url 'inbox' %}">{% trans 'Inbox' %}</a></li>
+        <li class="header__menuItem"><a href="{% url 'account' user_id=request.user.id %}">{% trans 'My Account' %}</a></li>
+        {% endif %}
+
+
+        <form id="language-form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}">
+          <select id='language' name="language"
+            style="background-color: rgb(45, 45, 57); color: aqua; border: none; padding: 2px 0px;">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>{{ language.code | upper}}
+            </option>
+            {% endfor %}
+          </select>
+        </form>
+
+        {% if not request.user.is_authenticated %}
+        <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">  {% trans 'Login/Sign Up' %}</a>
+        </li>
+        {% else %}
+        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn btn--sub">
+            {{ request.user.first_name }} 
+            <img src="{% static 'images/exit.png' %}" alt="Exit" style="width: 24px; height: 24px; margin-left: 8px; vertical-align: middle;">
+        </button>        </form>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script type="text/JavaScript">
+    const languageForm = document.getElementById('language-form');
+    const language = document.getElementById('language');
+
+    language.addEventListener('change',() => languageForm.submit());
+  </script>

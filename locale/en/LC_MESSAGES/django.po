@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-08 07:12+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CONFIG/settings.py:126
+msgid "English"
+msgstr ""
+
+#: CONFIG/settings.py:127
+msgid "Uzbek"
+msgstr ""
+
+#: CONFIG/settings.py:128
+msgid "Russian"
+msgstr ""
+
+#: MAIN/templates/MAIN/developers.html:9
+msgid "CONNECT WITH"
+msgstr ""
+
+#: MAIN/templates/MAIN/developers.html:9
+msgid "DEVELOPERS"
+msgstr ""
+
+#: MAIN/templates/MAIN/developers.html:10
+msgid "FROM AROUND THE WORLD"
+msgstr ""
+
+#: MAIN/templates/MAIN/developers.html:16
+msgid "Search Developers"
+msgstr ""
+
+#: MAIN/templates/MAIN/developers.html:74
+msgid "Prev"
+msgstr ""
+
+#: MAIN/templates/MAIN/developers.html:85
+msgid "Next"
+msgstr ""
+
+#: templates/components/_nav.html:15
+msgid "Developers"
+msgstr ""
+
+#: templates/components/_nav.html:16
+msgid "Projects"
+msgstr ""
+
+#: templates/components/_nav.html:17
+msgid "Inbox"
+msgstr ""
+
+#: templates/components/_nav.html:18
+msgid "My Account"
+msgstr ""
+
+#: templates/components/_nav.html:19
+msgid "Login/Sign Up"
+msgstr ""
