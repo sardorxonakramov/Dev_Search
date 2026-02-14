@@ -170,8 +170,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env.str("GOOGLE_KEY")
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env.str("GOOGLE_SECRET")
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env.str("GOOGLE_KEY")
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env.str("GOOGLE_SECRET")
 
 
 
@@ -189,5 +189,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = env.str('EMAIL_USER')
-EMAIL_HOST_PASSWORD = env.str('EMAIL_PASSWORD')
+# EMAIL_HOST_USER = env.str('EMAIL_USER')
+# EMAIL_HOST_PASSWORD = env.str('EMAIL_PASSWORD')

@@ -12,12 +12,11 @@ devsearch template va unga mos <small style='color:green'> MAIN va USERS </small
     python3 -m venv .venv
     source .venv/bin/activate
 ```
-- djangoni yuklash
+- djangoni  va qolgan modullarni yuklaymiz va environment ochamiz
 ```bash
-    pip install django==version or django >=3.2.1
-    django-admin startproject PROJECT .
-    python manage.py startapp app_name 
-    python manage.py runserver
+    pip install -r requirements.txt
+    touch .env
+
 ```
 
 2. Loyihadagi barcha kerakli bo'lgan narsalarni settingsda to'g'irlaymiz key va tokenlarni  <span style='color:red'> .env </span> file ichiga database ni ham sozlaymiz
